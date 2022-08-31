@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fulltoters/orderinfo.dart';
 
 class restprof extends StatefulWidget {
 
@@ -31,7 +32,7 @@ class _restprofState extends State<restprof> {
   Widget build(BuildContext context) {
     return Scaffold(
 backgroundColor: Colors.white,
-      body:Column(
+      body:ListView(
         children: [
           Stack(
             clipBehavior: Clip.none,
@@ -130,6 +131,23 @@ backgroundColor: Colors.white,
                   ],
                 ),
                 SizedBox(height: 15,),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  child: ListView(
+                    padding: EdgeInsets.all(10),
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      cardfun('office','images/bg.jpg'),
+                      SizedBox(width: 10,),cardfun('office','images/bg.jpg'),
+                      SizedBox(width: 10,),cardfun('office','images/bg.jpg'),
+                      SizedBox(width: 10,),cardfun('office','images/bg.jpg'),
+                      SizedBox(width: 10,),cardfun('office','images/bg.jpg'),
+                      SizedBox(width: 10,),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10,),
 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,6 +203,31 @@ backgroundColor: Colors.white,
         ],
       ),
 
+    );
+  }
+  Widget cardfun(name,img){
+    return Container(
+      height: 100,width: 100,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const iteminfo()),
+          );
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(img,height: 30,width: 50,),
+            Text(name),
+          ],
+        ),
+      ),
     );
   }
 }
