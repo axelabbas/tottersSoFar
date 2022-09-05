@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fulltoters/bulter.dart';
 import 'package:fulltoters/home.dart';
 import 'package:fulltoters/orders.dart';
 import 'package:fulltoters/profile.dart';
@@ -17,6 +18,7 @@ class _myNavbarState extends State<myNavbar> {
   List<Widget> pageList = [
     MyApp(), //0
     searchScreen(), //3
+    butlerScreen(),
     HomePage(),
     profileScreen(),//5
 
@@ -47,11 +49,12 @@ class _myNavbarState extends State<myNavbar> {
 
         });
         },
-
+        selectedItemColor: Colors.black,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.black,), label: 'search'),
           BottomNavigationBarItem(icon: Icon(Icons.search, color: Colors.black,), label: 'search'),
-          BottomNavigationBarItem(icon: Icon(Icons.receipt_long_outlined, color: Colors.black,), label: 'test'),
+          BottomNavigationBarItem(icon: Icon(Icons.person, color: Colors.black,), label: 'butler'),
+          BottomNavigationBarItem(icon: Icon(Icons.receipt_long_outlined, color: Colors.black,), label: 'orders'),
           BottomNavigationBarItem(icon: Icon(Icons.person, color: Colors.black,), label: 'profile'),
         ],
       ),
